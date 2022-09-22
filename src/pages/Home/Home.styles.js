@@ -27,8 +27,8 @@ export default StyleSheet.create({
     alignItems: "center",
   },
   countryLogo: {
-    width: width * 0.1,
-    height: height * 0.04,
+    width: width * 0.12,
+    height: height * 0.045,
   },
   diamondLogo: {
     width: width * 0.06,

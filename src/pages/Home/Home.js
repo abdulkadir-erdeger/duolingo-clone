@@ -1,9 +1,17 @@
-import { View, Text, SafeAreaView, Image, FlatList } from "react-native";
+import {
+  View,
+  Text,
+  SafeAreaView,
+  Image,
+  FlatList,
+  TouchableOpacity,
+} from "react-native";
 import styles from "./Home.styles";
 import Exercises from "../../components/Exercises";
-import React, { useLayoutEffect } from "react";
+import React, { useLayoutEffect, useState } from "react";
 import { useNavigation } from "@react-navigation/native";
 import data from "../../../data/courseData.json";
+import countryData from "../../../data/countryData.json";
 
 import { StatusBar } from "expo-status-bar";
 
@@ -14,14 +22,18 @@ const Home = () => {
       headerShown: false,
     });
   }, []);
+
   return (
     <SafeAreaView style={styles.container}>
       <StatusBar style="auto" />
       <View style={styles.header}>
-        <Image
-          style={styles.countryLogo}
-          source={require("../../../assets/Flag/turkey.png")}
-        />
+        <TouchableOpacity onPress={() => navigation.navigate("CountrySelect")}>
+          <Image
+            style={styles.countryLogo}
+            defaultSource={require("../../../assets/Flag/turkey.png")}
+            source={require("../../../assets/Flag/turkey.png")}
+          />
+        </TouchableOpacity>
         <View style={styles.infoContainer}>
           <Image
             style={styles.diamondLogo}

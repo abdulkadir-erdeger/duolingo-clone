@@ -12,6 +12,7 @@ import Svg, { G, Path, Circle } from "react-native-svg";
 import { useNavigation } from "@react-navigation/native";
 import WordList from "../../components/WordList/WordList";
 import * as Progress from "react-native-progress";
+import { RectButton } from "react-native-gesture-handler";
 
 const ExercisePage = () => {
   const navigation = useNavigation();
@@ -160,7 +161,6 @@ const Footer = () => {
   );
 };
 
-import { RectButton } from "react-native-gesture-handler";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 const styles3 = StyleSheet.create({

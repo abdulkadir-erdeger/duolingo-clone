@@ -5,6 +5,7 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { createStackNavigator } from "@react-navigation/stack";
 
 import ExercisePage from "./src/pages/ExercisePage";
+import CountrySelect from "./src/pages/CountrySelect";
 
 const Stack = createStackNavigator();
 
@@ -39,6 +40,13 @@ function HomePage() {
       <Stack.Screen
         name="ExercisePage"
         component={ExercisePage}
+        options={{
+          presentation: "modal",
+        }}
+      />
+      <Stack.Screen
+        name="CountrySelect"
+        component={CountrySelect}
         options={{
           presentation: "modal",
         }}

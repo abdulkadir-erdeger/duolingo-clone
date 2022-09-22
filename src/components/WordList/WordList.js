@@ -1,6 +1,7 @@
 import React, { ReactElement, useState } from "react";
 import { View, StyleSheet, Dimensions } from "react-native";
 import { useSharedValue, runOnUI, runOnJS } from "react-native-reanimated";
+import SortableWord from "../SortableWord/";
 
 const containerWidth = Dimensions.get("window").width - 32 * 2;
 const styles = StyleSheet.create({
@@ -66,6 +67,16 @@ const WordList = ({ children }) => {
   return (
     <View style={styles.container}>
       <Lines />
+      {children.map((child, index) => (
+        <SortableWord
+          key={index}
+          offsets={offsets}
+          index={index}
+          containerWidth={containerWidth}
+        >
+          {child}
+        </SortableWord>
+      ))}
     </View>
   );
 };
