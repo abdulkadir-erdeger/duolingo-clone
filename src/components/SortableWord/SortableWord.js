@@ -8,7 +8,7 @@ import Animated, {
   useDerivedValue,
 } from "react-native-reanimated";
 import { PanGestureHandler } from "react-native-gesture-handler";
-import { between, useVector, move } from "react-native-redash";
+import { between, useVector } from "react-native-redash";
 
 import { calculateLayout, lastOrder, remove, reorder } from "../Layout";
 
