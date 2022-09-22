@@ -1,0 +1,92 @@
+{
+    "sections": [
+      {
+        "id": "intro",
+        "data": [
+          {
+            "tier": 1,
+            "exercises": [
+              {
+                "id": "1",
+                "learner": {
+                  "level": 5,
+                  "lesson": 3,
+                  "isCompleted": true
+                },
+                "definition": {
+                  "name": "Temeller 1",
+                  "levels": 100,
+                  "lessons": 3
+                }
+              }
+            ]
+          },
+          {
+            "tier": 2,
+            "exercises": [
+              {
+                "id": "2",
+                "learner": {
+                  "level": 5,
+                  "lesson": 1,
+                  "isCompleted": false
+                },
+                "definition": {
+                  "name": "Temeller 2",
+                  "levels": 70,
+                  "lessons": 3
+                }
+              },
+              {
+                "id": "3",
+                "learner": {
+                  "level": 4,
+                  "lesson": 2,
+                  "isCompleted": false
+                },
+                "definition": {
+                  "name": "İfadeler",
+                  "levels": 50,
+                  "lessons": 4
+                }
+              }
+            ]
+          },
+          {
+            "tier": 3,
+            "exercises": [
+              
+              {
+                "id": "4",
+                "learner": {
+                  "level": 3,
+                  "lesson": 2,
+                  "isCompleted": false
+                },
+                "definition": {
+                  "name": "Yemekler",
+                  "levels": 20,
+                  "lessons": 3
+                }
+              },
+              {
+                "id": "5",
+                "learner": {
+                  "level": 3,
+                  "lesson": 0,
+                  "isCompleted": false
+                },
+                "definition": {
+                  "name": "Hayvanlar",
+                  "levels": 0,
+                  "lessons": 2
+                }
+              }
+            ]
+          }
+        
+        ]
+      }
+    ]
+  }
+  
