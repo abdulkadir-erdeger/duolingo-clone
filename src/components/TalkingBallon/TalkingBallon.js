@@ -1,5 +1,5 @@
-import { View, Text } from "react-native";
-import React, { useEffect, useState } from "react";
+import { View, Text, TouchableOpacity } from "react-native";
+import React, { useState } from "react";
 import styles from "./TalkingBallon.styles";
 import { SpeakerWaveIcon } from "react-native-heroicons/solid";
 
@@ -21,12 +21,12 @@ const TalkingBallon = () => {
       <Text>
         <SpeakerWaveIcon fill="#1cb0f6" color="#1cb0f6" size={22} />
         {x.map((item, index) => (
-          <>
-            <Text key={item + index}> </Text>
-            <Text style={styles.text} key={index}>
-              {item}
-            </Text>
-          </>
+          <Text key={index}>
+            <Text> </Text>
+            <TouchableOpacity>
+              <Text style={styles.text}>{item}</Text>
+            </TouchableOpacity>
+          </Text>
         ))}
       </Text>
     </View>
