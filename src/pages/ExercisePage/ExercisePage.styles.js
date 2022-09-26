@@ -21,8 +21,12 @@ export default StyleSheet.create({
   },
   image: {
     marginStart: 25,
-    width: 280,
+    width: 100,
     height: 150,
+  },
+  questionCard: {
+    flexDirection: "row",
+    alignItems: "center",
   },
   heartText: {
     fontSize: 18,

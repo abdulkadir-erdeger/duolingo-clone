@@ -13,6 +13,8 @@ import { useNavigation } from "@react-navigation/native";
 import WordList from "../../components/WordList/WordList";
 import * as Progress from "react-native-progress";
 import { RectButton } from "react-native-gesture-handler";
+import { useSafeAreaInsets } from "react-native-safe-area-context";
+import TalkingBallon from "../../components/TalkingBallon/TalkingBallon";
 
 const ExercisePage = () => {
   const navigation = useNavigation();
@@ -38,10 +40,13 @@ const ExercisePage = () => {
         </View>
 
         <Text style={styles.title}>Bu cümleyi çevir</Text>
-        <Image
-          style={styles.image}
-          source={require("../../../assets/character.png")}
-        />
+        <View style={styles.questionCard}>
+          <Image
+            style={styles.image}
+            source={require("../../../assets/character2.png")}
+          />
+          <TalkingBallon />
+        </View>
       </View>
 
       <WordList>
@@ -160,8 +165,6 @@ const Footer = () => {
     </View>
   );
 };
-
-import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 const styles3 = StyleSheet.create({
   button: {
