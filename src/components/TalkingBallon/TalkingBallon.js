@@ -1,11 +1,17 @@
 import { View, Text } from "react-native";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./TalkingBallon.styles";
 import { SpeakerWaveIcon } from "react-native-heroicons/solid";
 
-const sentence = ["The", "dress", "is", "very", "small", "."];
+const sentence = "The dress is very small .";
 
 const TalkingBallon = () => {
+  const [x, setX] = useState(wordShredding(sentence));
+  function wordShredding(text) {
+    const sentences = text.split(" ");
+    return sentences;
+  }
+
   return (
     <View style={styles.dialog}>
       <View style={styles.leftPoint}>
@@ -14,7 +20,7 @@ const TalkingBallon = () => {
 
       <Text>
         <SpeakerWaveIcon fill="#1cb0f6" color="#1cb0f6" size={22} />
-        {sentence.map((item, index) => (
+        {x.map((item, index) => (
           <>
             <Text key={item + index}> </Text>
             <Text style={styles.text} key={index}>
