@@ -3,7 +3,7 @@ import { StyleSheet } from "react-native";
 export default StyleSheet.create({
   dialog: {
     width: "40%",
-    height: "70%",
+    //height: "70%",
     backgroundColor: "white",
     borderRadius: 12,
     padding: 15,
