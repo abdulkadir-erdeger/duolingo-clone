@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { StyleSheet, View } from "react-native";
 import Animated, {
   useAnimatedStyle,
@@ -18,6 +18,7 @@ const SortableWord = ({ offsets, index, children, containerWidth }) => {
   const isAnimating = useSharedValue(false);
   const translation = useVector();
   const isInBank = useDerivedValue(() => offset.order.value === -1);
+
   const onGestureEvent = useAnimatedGestureHandler({
     onStart: (_, ctx) => {
       if (isInBank.value) {
