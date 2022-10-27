@@ -3,6 +3,7 @@ import { useFonts } from "expo-font";
 import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { createStackNavigator } from "@react-navigation/stack";
+import WordControlProvider from "./src/context";
 
 import ExercisePage from "./src/pages/ExercisePage";
 import CountrySelect from "./src/pages/CountrySelect";
@@ -27,9 +28,11 @@ export default function App() {
     return null;
   }
   return (
-    <NavigationContainer independent={true}>
-      <HomePage />
-    </NavigationContainer>
+    <WordControlProvider>
+      <NavigationContainer independent={true}>
+        <HomePage />
+      </NavigationContainer>
+    </WordControlProvider>
   );
 }
 

@@ -16,8 +16,17 @@ import { RectButton } from "react-native-gesture-handler";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import TalkingBallon from "../../components/TalkingBallon/TalkingBallon";
 
+import {
+  Ionicons,
+  MaterialCommunityIcons,
+  MaterialIcons,
+} from "@expo/vector-icons";
+import { useSelector } from "react-redux";
+import { useState } from "react";
+
 const ExercisePage = () => {
   const navigation = useNavigation();
+
   return (
     <View style={styles.container}>
       <View>
@@ -49,7 +58,7 @@ const ExercisePage = () => {
         </View>
       </View>
 
-      <WordList>
+      <WordList _words={words}>
         {words.map((word) => (
           <Word key={word.id} {...word} />
         ))}
@@ -143,6 +152,39 @@ const styles2 = StyleSheet.create({
 
 const Footer = () => {
   const insets = useSafeAreaInsets();
+  const correctAnswer = ["Elbise", "çok", "küçük"];
+  const wordArrayList = useSelector((state) => state.wordList);
+  const [check, SetCheck] = useState(false);
+  const [checkStatus, setCheckStatus] = useState(false);
+
+  const control = () => {
+    let status = false;
+    if (wordArrayList) {
+      if (correctAnswer.length !== wordArrayList.length) {
+        status = false;
+      } else {
+        for (let x = 0; x < correctAnswer.length; x++) {
+          if (
+            correctAnswer[x].toLocaleLowerCase() !==
+            wordArrayList[x].toLocaleLowerCase()
+          ) {
+            status = false;
+            break;
+          } else {
+            status = true;
+          }
+        }
+      }
+    }
+    if (status) {
+      console.log("doğru :", wordArrayList);
+      setCheckStatus(true);
+    } else {
+      console.log("yanlış :", wordArrayList);
+      setCheckStatus(false);
+    }
+  };
+
   return (
     <View
       style={{
@@ -159,9 +201,86 @@ const Footer = () => {
           ...StyleSheet.absoluteFillObject,
         }}
       />
-      <RectButton style={styles3.button}>
+      <RectButton
+        onPress={() => {
+          control(), SetCheck(true);
+        }}
+        style={styles3.button}
+      >
         <Text style={styles3.label}>Kontrol Et</Text>
       </RectButton>
+      {check && checkStatus && (
+        <View style={styles.controlContainer}>
+          <View style={{ flexDirection: "row", alignItems: "center" }}>
+            <Ionicons name="checkmark-circle-sharp" size={35} color="#59CB01" />
+            <Text
+              style={{
+                marginStart: 10,
+                fontSize: 25,
+                color: "#59CB01",
+                fontFamily: "Nunito_ExtraBold",
+                flex: 1,
+              }}
+            >
+              Aferin!
+            </Text>
+            <Ionicons name="share-outline" size={25} color="#59CB01" />
+            <MaterialCommunityIcons
+              name="message-reply-outline"
+              size={25}
+              color="#59CB01"
+            />
+            <MaterialIcons name="outlined-flag" size={30} color="#59CB01" />
+          </View>
+          <RectButton
+            onPress={() => SetCheck(false)}
+            style={[styles3.button, { bottom: -30 }]}
+          >
+            <Text style={styles3.label}>Devam Et</Text>
+          </RectButton>
+        </View>
+      )}
+      {check && !checkStatus && (
+        <View style={styles.controlContainer}>
+          <View style={{ flexDirection: "row", alignItems: "center" }}>
+            <Ionicons name="close-circle" size={35} color="#ff4b4b" />
+            <Text
+              style={{
+                marginStart: 10,
+                fontSize: 25,
+                color: "#ff4b4b",
+                fontFamily: "Nunito_ExtraBold",
+                flex: 1,
+              }}
+            >
+              Doğru cevap:
+            </Text>
+            <Ionicons name="share-outline" size={25} color="#ff4b4b" />
+            <MaterialCommunityIcons
+              name="message-reply-outline"
+              size={25}
+              color="#ff4b4b"
+            />
+            <MaterialIcons name="outlined-flag" size={30} color="#ff4b4b" />
+          </View>
+          <Text
+            style={{
+              fontSize: 18,
+              color: "#ff4b4b",
+              fontFamily: "Nunito_Regular",
+              flex: 1,
+            }}
+          >
+            {correctAnswer.toString().split(",").join(" ")}
+          </Text>
+          <RectButton
+            onPress={() => SetCheck(false)}
+            style={[styles3.button, { bottom: -8, backgroundColor: "#ff4b4b" }]}
+          >
+            <Text style={styles3.label}>Tamam</Text>
+          </RectButton>
+        </View>
+      )}
     </View>
   );
 };

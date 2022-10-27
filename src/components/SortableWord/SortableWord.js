@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { StyleSheet, View } from "react-native";
 import Animated, {
   useAnimatedStyle,
@@ -12,7 +12,13 @@ import { between, useVector } from "react-native-redash";
 
 import { calculateLayout, lastOrder, remove, reorder } from "../Layout";
 
-const SortableWord = ({ offsets, index, children, containerWidth }) => {
+const SortableWord = ({
+  offsets,
+  index,
+  children,
+  containerWidth,
+  wordControl,
+}) => {
   const offset = offsets[index];
   const isGestureActive = useSharedValue(false);
   const isAnimating = useSharedValue(false);
@@ -67,6 +73,7 @@ const SortableWord = ({ offsets, index, children, containerWidth }) => {
       );
       translation.y.value = withSpring(offset.y.value, { velocity: velocityY });
       isGestureActive.value = false;
+      wordControl(index);
     },
   });
   const translateX = useDerivedValue(() => {

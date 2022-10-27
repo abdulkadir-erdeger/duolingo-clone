@@ -1,5 +1,7 @@
-import { StyleSheet } from "react-native";
+import { StyleSheet, Dimensions } from "react-native";
 import Color from "../../../assets/Utilites/Color";
+
+const { width } = Dimensions.get("window");
 
 export default StyleSheet.create({
   container: {
@@ -33,5 +35,13 @@ export default StyleSheet.create({
     color: Color.Cardinal,
     margin: 5,
     fontFamily: "Nunito_ExtraBold",
+  },
+  controlContainer: {
+    position: "absolute",
+    width: width,
+    height: 150,
+    backgroundColor: Color.Eel,
+    bottom: -30,
+    padding: 20,
   },
 });

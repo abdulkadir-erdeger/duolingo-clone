@@ -1,7 +1,8 @@
-import React, { ReactElement, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { View, StyleSheet, Dimensions } from "react-native";
 import { useSharedValue, runOnUI, runOnJS } from "react-native-reanimated";
 import SortableWord from "../SortableWord/";
+import { useDispatch } from "react-redux";
 
 const containerWidth = Dimensions.get("window").width - 32 * 2;
 const styles = StyleSheet.create({
@@ -18,7 +19,30 @@ const styles = StyleSheet.create({
   },
 });
 
-const WordList = ({ children }) => {
+const WordList = ({ children, _words }) => {
+  const deger = useSharedValue([]);
+  const [wordArary, setwordArray] = useState();
+  const dispatch = useDispatch();
+
+  function wordControl(i) {
+    "worklet";
+    let wordList = deger.value;
+    if (wordList.includes(_words[i].word)) {
+      let _index = wordList.indexOf(_words[i].word);
+      wordList.splice(_index, 1);
+      deger.value = wordList;
+      runOnJS(setwordArray)(wordList);
+    } else {
+      wordList.push(_words[i].word);
+      deger.value = wordList;
+      runOnJS(setwordArray)(wordList);
+    }
+  }
+
+  useEffect(() => {
+    dispatch({ type: "ADD_LIST", payload: wordArary });
+  }, [wordArary]);
+
   const [ready, setReady] = useState(false);
   const offsets = children.map(() => ({
     order: useSharedValue(0),
@@ -73,6 +97,7 @@ const WordList = ({ children }) => {
           offsets={offsets}
           index={index}
           containerWidth={containerWidth}
+          wordControl={wordControl}
         >
           {child}
         </SortableWord>

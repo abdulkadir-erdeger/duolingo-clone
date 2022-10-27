@@ -14,7 +14,6 @@ const Color = {
   Swan: "#e5e5e5",
   Polar: "#f7f7f7",
   Beak_Upper: "#ffc200",
-  Feather_Green: "#58cc02",
 };
 
 export default Color;
