@@ -44,4 +44,41 @@ export default StyleSheet.create({
     bottom: -30,
     padding: 20,
   },
+  button: {
+    backgroundColor: "#59CB01",
+    width: "100%",
+    height: 45,
+    borderRadius: 16,
+    justifyContent: "center",
+  },
+  label: {
+    color: "white",
+    fontWeight: "bold",
+    fontSize: 18,
+    textAlign: "center",
+    fontFamily: "Nunito_Bold",
+  },
+
+  root: {
+    padding: 4,
+  },
+  container2: {
+    padding: 8,
+    borderRadius: 8,
+    borderWidth: 1,
+    borderColor: "#E8E6E8",
+    backgroundColor: "white",
+    height: 55 - 8,
+  },
+  text: {
+    fontFamily: "Nunito_Regular",
+    fontSize: 19,
+  },
+  shadow: {
+    ...StyleSheet.absoluteFillObject,
+    borderRadius: 8,
+    borderBottomWidth: 3,
+    borderColor: "#E8E6E8",
+    top: 4,
+  },
 });

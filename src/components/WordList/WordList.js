@@ -3,21 +3,9 @@ import { View, StyleSheet, Dimensions } from "react-native";
 import { useSharedValue, runOnUI, runOnJS } from "react-native-reanimated";
 import SortableWord from "../SortableWord/";
 import { useDispatch } from "react-redux";
+import styles from "./WordList.styles";
 
 const containerWidth = Dimensions.get("window").width - 32 * 2;
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    margin: 32,
-  },
-  row: {
-    flex: 1,
-    flexDirection: "row",
-    flexWrap: "wrap",
-    justifyContent: "center",
-    opacity: 0,
-  },
-});
 
 const WordList = ({ children, _words }) => {
   const deger = useSharedValue([]);

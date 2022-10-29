@@ -115,40 +115,15 @@ const words = [
 ];
 
 const Word = ({ word }) => (
-  <View style={styles2.root}>
+  <View style={styles.root}>
     <View>
-      <View style={styles2.container}>
-        <Text style={styles2.text}>{word}</Text>
+      <View style={styles.container2}>
+        <Text style={styles.text}>{word}</Text>
       </View>
-      <View style={styles2.shadow} />
+      <View style={styles.shadow} />
     </View>
   </View>
 );
-
-const styles2 = StyleSheet.create({
-  root: {
-    padding: 4,
-  },
-  container: {
-    padding: 8,
-    borderRadius: 8,
-    borderWidth: 1,
-    borderColor: "#E8E6E8",
-    backgroundColor: "white",
-    height: 55 - 8,
-  },
-  text: {
-    fontFamily: "Nunito_Regular",
-    fontSize: 19,
-  },
-  shadow: {
-    ...StyleSheet.absoluteFillObject,
-    borderRadius: 8,
-    borderBottomWidth: 3,
-    borderColor: "#E8E6E8",
-    top: 4,
-  },
-});
 
 const Footer = () => {
   const insets = useSafeAreaInsets();
@@ -205,9 +180,9 @@ const Footer = () => {
         onPress={() => {
           control(), SetCheck(true);
         }}
-        style={styles3.button}
+        style={styles.button}
       >
-        <Text style={styles3.label}>Kontrol Et</Text>
+        <Text style={styles.label}>Kontrol Et</Text>
       </RectButton>
       {check && checkStatus && (
         <View style={styles.controlContainer}>
@@ -234,9 +209,9 @@ const Footer = () => {
           </View>
           <RectButton
             onPress={() => SetCheck(false)}
-            style={[styles3.button, { bottom: -30 }]}
+            style={[styles.button, { bottom: -30 }]}
           >
-            <Text style={styles3.label}>Devam Et</Text>
+            <Text style={styles.label}>Devam Et</Text>
           </RectButton>
         </View>
       )}
@@ -275,29 +250,12 @@ const Footer = () => {
           </Text>
           <RectButton
             onPress={() => SetCheck(false)}
-            style={[styles3.button, { bottom: -8, backgroundColor: "#ff4b4b" }]}
+            style={[styles.button, { bottom: -8, backgroundColor: "#ff4b4b" }]}
           >
-            <Text style={styles3.label}>Tamam</Text>
+            <Text style={styles.label}>Tamam</Text>
           </RectButton>
         </View>
       )}
     </View>
   );
 };
-
-const styles3 = StyleSheet.create({
-  button: {
-    backgroundColor: "#59CB01",
-    width: "100%",
-    height: 45,
-    borderRadius: 16,
-    justifyContent: "center",
-  },
-  label: {
-    color: "white",
-    fontWeight: "bold",
-    fontSize: 18,
-    textAlign: "center",
-    fontFamily: "Nunito_Bold",
-  },
-});
