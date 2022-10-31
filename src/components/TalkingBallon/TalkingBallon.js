@@ -3,9 +3,7 @@ import React, { useState } from "react";
 import styles from "./TalkingBallon.styles";
 import { SpeakerWaveIcon } from "react-native-heroicons/solid";
 
-const sentence = "The dress is very small .";
-
-const TalkingBallon = () => {
+const TalkingBallon = ({ sentence }) => {
   const [x, setX] = useState(wordShredding(sentence));
   function wordShredding(text) {
     const sentences = text.split(" ");
