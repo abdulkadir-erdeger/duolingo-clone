@@ -9,20 +9,27 @@ import Footer from "../../components/Footer";
 import { useState } from "react";
 import Word from "../../components/Word";
 import Heart from "../../components/Heart";
+import { useEffect } from "react";
 
 const ExercisePage = () => {
   const navigation = useNavigation();
   const [row, setRow] = useState(2);
   const route = useRoute();
-  const questions = route.params.questions["q" + row];
+  const data = route.params;
+  const [questions, setQuestions] = useState(data.questions["q" + row]);
 
   function checking() {
-    if (Object.keys(questions).length > row) {
+    if (Object.keys(questions).length - 1 > row) {
       setRow(row + 1);
     } else {
       navigation.goBack();
     }
   }
+
+  useEffect(() => {
+    let newData = data.questions["q" + row];
+    setQuestions(newData);
+  }, [row]);
 
   const Cross = ({ navigation }) => {
     return (
@@ -69,6 +76,7 @@ const ExercisePage = () => {
             style={styles.image}
             source={require("../../../assets/character2.png")}
           />
+
           <TalkingBallon sentence={questions.question} />
         </View>
       </View>
@@ -78,6 +86,7 @@ const ExercisePage = () => {
           <Word key={word.id} {...word} />
         ))}
       </WordList>
+
       <Footer correctAnswer={questions.answer} checking={checking} />
     </View>
   );

@@ -1,10 +1,10 @@
 import { View, Text, TouchableOpacity } from "react-native";
-import React, { useState } from "react";
+import React from "react";
 import styles from "./TalkingBallon.styles";
 import { SpeakerWaveIcon } from "react-native-heroicons/solid";
 
 const TalkingBallon = ({ sentence }) => {
-  const [x, setX] = useState(wordShredding(sentence));
+  let x = wordShredding(sentence);
   function wordShredding(text) {
     const sentences = text.split(" ");
     return sentences;
