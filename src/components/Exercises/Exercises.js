@@ -7,9 +7,9 @@ import { useNavigation } from "@react-navigation/native";
 
 const Exercises = ({ exercise }) => {
   const navigation = useNavigation();
-  let x = exercise.definition.picture;
-
-  const uri = require("../../../assets/Icons/" + "basics.png");
+  const url =
+    "https://raw.githubusercontent.com/abdulkadir-erdeger/duolingo-clone/master/assets/Icons/" +
+    exercise.definition.picture;
 
   return (
     exercise && (
@@ -34,7 +34,13 @@ const Exercises = ({ exercise }) => {
                 backgroundColor: Color.Feather_Green,
               }}
             >
-              <Image style={styles.innerLogo} source={uri} resizeMode="cover" />
+              <Image
+                style={styles.innerLogo}
+                source={{
+                  uri: url,
+                }}
+                resizeMode="cover"
+              />
             </View>
           )}
         </AnimatedCircularProgress>
