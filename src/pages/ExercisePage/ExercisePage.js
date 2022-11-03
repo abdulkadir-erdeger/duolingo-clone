@@ -13,23 +13,23 @@ import { useEffect } from "react";
 
 const ExercisePage = () => {
   const navigation = useNavigation();
-  const [row, setRow] = useState(2);
+  const [row, setRow] = useState(1);
   const route = useRoute();
   const data = route.params;
   const [questions, setQuestions] = useState(data.questions["q" + row]);
-
-  function checking() {
-    if (Object.keys(questions).length - 1 > row) {
-      setRow(row + 1);
-    } else {
-      navigation.goBack();
-    }
-  }
 
   useEffect(() => {
     let newData = data.questions["q" + row];
     setQuestions(newData);
   }, [row]);
+
+  const checking = () => {
+    if (Object.keys(questions).length - 1 > row) {
+      setRow(row + 1);
+    } else {
+      navigation.goBack();
+    }
+  };
 
   const Cross = ({ navigation }) => {
     return (

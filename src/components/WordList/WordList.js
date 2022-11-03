@@ -1,16 +1,22 @@
 import React, { useEffect, useState } from "react";
-import { View, StyleSheet, Dimensions } from "react-native";
+import { View, Dimensions } from "react-native";
 import { useSharedValue, runOnUI, runOnJS } from "react-native-reanimated";
 import SortableWord from "../SortableWord/";
+import Lines from "../Lines";
 import { useDispatch } from "react-redux";
 import styles from "./WordList.styles";
 
 const containerWidth = Dimensions.get("window").width - 32 * 2;
 
 const WordList = ({ children, _words }) => {
+  const [ready, setReady] = useState(false);
   const deger = useSharedValue([]);
-  const [wordArary, setwordArray] = useState();
+  const [wordArary, setwordArray] = useState([]);
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch({ type: "ADD_LIST", payload: wordArary });
+  }, [wordArary]);
 
   function wordControl(i) {
     "worklet";
@@ -27,11 +33,6 @@ const WordList = ({ children, _words }) => {
     }
   }
 
-  useEffect(() => {
-    dispatch({ type: "ADD_LIST", payload: wordArary });
-  }, [wordArary]);
-
-  const [ready, setReady] = useState(false);
   const offsets = children.map(() => ({
     order: useSharedValue(0),
     width: useSharedValue(0),
@@ -41,6 +42,7 @@ const WordList = ({ children, _words }) => {
     originalX: useSharedValue(0),
     originalY: useSharedValue(0),
   }));
+
   if (!ready) {
     return (
       <View style={styles.row}>
@@ -76,6 +78,7 @@ const WordList = ({ children, _words }) => {
       </View>
     );
   }
+
   return (
     <View style={styles.container}>
       <Lines />
@@ -95,21 +98,3 @@ const WordList = ({ children, _words }) => {
 };
 
 export default WordList;
-
-const Lines = () => {
-  return (
-    <View style={StyleSheet.absoluteFill}>
-      {new Array(3).fill(0).map((_, index) => (
-        <View
-          key={index * 55}
-          style={{
-            top: index * 55 - 2,
-            width: "100%",
-            height: 2,
-            backgroundColor: "#E6E5E6",
-          }}
-        />
-      ))}
-    </View>
-  );
-};

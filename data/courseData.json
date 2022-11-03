@@ -42,8 +42,8 @@
                       { "id": "7", "word": "adam" },
                       { "id": "6", "word": "elma" },
                       { "id": "9", "word": "ben" },
-                      { "id": "5", "word": "Bir" },
-                      { "id": "3", "word": "su" }
+                      { "id": "5", "word": "Bir" }
+                  
                   ],
                   "answer":["Bir", "adam" ,"bir","kadın"]
                   }
