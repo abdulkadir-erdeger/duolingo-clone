@@ -31,6 +31,11 @@ const ExercisePage = () => {
     }
   };
 
+  const progressValue = () => {
+    let x = row / (Object.keys(questions).length - 1);
+    return x;
+  };
+
   const Cross = ({ navigation }) => {
     return (
       <TouchableOpacity onPress={() => navigation.goBack()}>
@@ -56,7 +61,7 @@ const ExercisePage = () => {
           <Cross navigation={navigation} />
 
           <Progress.Bar
-            progress={0.1}
+            progress={progressValue()}
             width={width - 50}
             height={(width * 11) / 135}
             color={"#58CC00"}
