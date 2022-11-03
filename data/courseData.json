@@ -91,7 +91,7 @@
                       { "id": "6", "word": "elma" },
                       { "id": "9", "word": "ben" },
                       { "id": "5", "word": "Bir" },
-                      { "id": "3", "word": "su" }
+             
                   ],
                   "answer":["Bir", "adam" ,"bir","kadın"]
                   }
@@ -134,7 +134,7 @@
                       { "id": "6", "word": "elma" },
                       { "id": "9", "word": "ben" },
                       { "id": "5", "word": "Bir" },
-                      { "id": "3", "word": "su" }
+                
                   ],
                   "answer":["Bir", "adam" ,"bir","kadın"]
                   }
@@ -183,7 +183,7 @@
                       { "id": "6", "word": "elma" },
                       { "id": "9", "word": "ben" },
                       { "id": "5", "word": "Bir" },
-                      { "id": "3", "word": "su" }
+              
                   ],
                   "answer":["Bir", "adam" ,"bir","kadın"]
                   }
@@ -226,7 +226,7 @@
                       { "id": "6", "word": "elma" },
                       { "id": "9", "word": "ben" },
                       { "id": "5", "word": "Bir" },
-                      { "id": "3", "word": "su" }
+             
                   ],
                   "answer":["Bir", "adam" ,"bir","kadın"]
                   }
